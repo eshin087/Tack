@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SearchPin Settings</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      max-width: 760px;
+      margin: 32px auto;
+      padding: 0 16px;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #1e1e1e; color: #e6e6e6; }
+      .profile-row { background: #2a2a2a; border-color: #444; }
+      .profile-row input[type="text"] { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
+      .help { color: #999; }
+      code { background: #333; }
+    }
+    h1 { margin: 0 0 4px; font-size: 22px; }
+    .subtitle { color: #666; margin: 0 0 24px; font-size: 13px; }
+    .profile-row {
+      display: grid;
+      grid-template-columns: minmax(120px, 1fr) minmax(180px, 2fr) auto auto auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      background: #fafafa;
+    }
+    .profile-row input[type="text"] {
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: inherit;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .profile-row label {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    button {
+      padding: 6px 10px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+    }
+    .add-btn {
+      margin-top: 16px;
+      padding: 8px 16px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .add-btn:hover { background: #1659b6; }
+    .delete-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #c33;
+      cursor: pointer;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
+    .delete-btn:hover { background: rgba(204, 51, 51, 0.1); border-color: #c33; }
+    .help {
+      font-size: 12px;
+      color: #666;
+      margin: 24px 0 0;
+      line-height: 1.6;
+    }
+    .help code {
+      background: #eee;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+    .saved-indicator {
+      color: #2a8;
+      font-size: 12px;
+      margin-left: 10px;
+      transition: opacity 0.2s;
+    }
+    .actions { display: flex; align-items: center; }
+    .shortcuts-section { margin-top: 32px; }
+    .shortcuts-section h2 { font-size: 16px; margin: 0 0 4px; }
+    .shortcuts-section .section-sub { font-size: 12px; color: #666; margin: 0 0 14px; }
+    @media (prefers-color-scheme: dark) {
+      .shortcuts-section .section-sub { color: #999; }
+      .shortcut-row { background: #2a2a2a; border-color: #444; }
+      .shortcut-key { background: #1e1e1e; border-color: #555; color: #e6e6e6; }
+    }
+    .shortcut-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      background: #fafafa;
+      font-size: 13px;
+    }
+    .shortcut-label { flex: 1; }
+    .shortcut-desc { font-size: 11px; color: #888; margin-top: 1px; }
+    .shortcut-key {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 3px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f4f4f4;
+      white-space: nowrap;
+      min-width: 80px;
+      text-align: center;
+    }
+    .shortcut-key.unset { color: #aaa; font-style: italic; }
+    .customize-btn {
+      margin-top: 10px;
+      padding: 7px 14px;
+      background: transparent;
+      border: 1px solid #1a73e8;
+      color: #1a73e8;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .customize-btn:hover { background: rgba(26, 115, 232, 0.08); }
+    .kb-capture {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 4px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      min-width: 110px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .kb-capture.recording {
+      background: #fff8e1;
+      border-color: #f59f00;
+      color: #b85c00;
+    }
+    .kb-capture.unset { color: #aaa; font-style: italic; }
+    @media (prefers-color-scheme: dark) {
+      .kb-capture { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
+      .kb-capture.recording { background: #3a2a00; color: #ffd47a; border-color: #f59f00; }
+    }
+    .kb-clear {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #c33;
+      padding: 2px 6px;
+      font-size: 11px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .kb-clear:hover { background: rgba(204, 51, 51, 0.1); border-color: #c33; }
+    .prefs-section {
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+      margin-bottom: 20px;
+    }
+    .prefs-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .prefs-row input { margin-top: 3px; }
+    @media (prefers-color-scheme: dark) {
+      .prefs-section { background: #2a2a2a; border-color: #444; }
+    }
+  </style>
+</head>
+<body>
+  <h1>SearchPin</h1>
+  <p class="subtitle">
+    Define one or more search profiles. The profile flagged as <strong>Default</strong>
+    is applied automatically to your Google, Bing, and DuckDuckGo searches.
+  </p>
+
+  <section class="prefs-section">
+    <label class="prefs-row">
+      <input type="checkbox" id="silent-mode">
+      <span>
+        <strong>Silent mode</strong> — never auto-show the bar or pill.
+        Use the <em>Show / hide the SearchPin bar</em> shortcut (assign one below) to bring it up on demand.
+      </span>
+    </label>
+  </section>
+
+  <div id="profiles"></div>
+
+  <div class="actions">
+    <button id="add" class="add-btn">+ Add profile</button>
+    <span id="saved" class="saved-indicator" style="opacity:0">Saved</span>
+  </div>
+
+  <section class="shortcuts-section">
+    <h2>Keyboard shortcuts (Chrome-managed)</h2>
+    <p class="section-sub">
+      These work everywhere in Chrome. Chrome requires <code>Ctrl</code>, <code>Alt</code>,
+      or <code>Cmd</code> as a modifier — bare <code>Shift+letter</code> combos aren't allowed here.
+    </p>
+    <div id="shortcuts-list"></div>
+    <button id="customize-shortcuts" class="customize-btn">Customize shortcuts in Chrome settings</button>
+  </section>
+
+  <section class="shortcuts-section">
+    <h2>In-page keybindings</h2>
+    <p class="section-sub">
+      Any key combo (including bare <code>Shift+Q</code>). Only active on search results pages,
+      and ignored while you're typing in the search box.
+    </p>
+    <div id="keybindings-list"></div>
+  </section>
+
+  <div class="help">
+    <p><strong>Examples:</strong>
+      <code>site:reddit.com</code>,
+      <code>site:github.com</code>,
+      <code>filetype:pdf</code>,
+      <code>inurl:tutorial</code>,
+      <code>-site:pinterest.com</code>
+    </p>
+    <p>Profiles sync across your Chrome installs via <code>chrome.storage.sync</code>.</p>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

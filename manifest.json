@@ -1,0 +1,67 @@
+{
+  "manifest_version": 3,
+  "name": "SearchPin",
+  "version": "0.1.0",
+  "description": "Auto-append search modifiers (like site:reddit.com) to Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave searches.",
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://www.google.com/*",
+    "*://www.bing.com/*",
+    "*://duckduckgo.com/*",
+    "*://search.yahoo.com/*",
+    "*://www.ecosia.org/*",
+    "*://search.brave.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "SearchPin settings"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://www.bing.com/search*",
+        "*://duckduckgo.com/*",
+        "*://search.yahoo.com/search*",
+        "*://www.ecosia.org/search*",
+        "*://search.brave.com/search*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "toggle-filter": {
+      "suggested_key": {
+        "default": "Alt+Shift+F"
+      },
+      "description": "Toggle SearchPin filter for the current results page"
+    },
+    "enable-filter": {
+      "description": "Apply filter — enable SearchPin for the current results page"
+    },
+    "disable-filter": {
+      "description": "Show all — disable SearchPin for the current results page"
+    },
+    "show-ui": {
+      "description": "Show / hide the SearchPin bar (used in Silent mode)"
+    },
+    "cycle-profile": {
+      "description": "Cycle to the next filter profile"
+    },
+    "cycle-profile-back": {
+      "description": "Cycle to the previous filter profile"
+    }
+  }
+}
