@@ -1,7 +1,7 @@
 {
-  "name": "searchpin",
+  "name": "tack",
   "version": "0.1.0",
-  "description": "Auto-append search modifiers (e.g. site:reddit.com) on Google/Bing/DuckDuckGo.",
+  "description": "Pin a site: filter to every search — Tack auto-appends modifiers (e.g. site:reddit.com) on Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave.",
   "private": true,
   "type": "module",
   "scripts": {

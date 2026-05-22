@@ -1,7 +1,7 @@
 import type { SearchProfile } from './types';
 import type { StorageAdapter } from './storage';
 
-export const PROFILES_KEY = 'searchpin:profiles';
+export const PROFILES_KEY = 'tack:profiles';
 
 export function defaultProfiles(): SearchProfile[] {
   return [

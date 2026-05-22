@@ -44,7 +44,7 @@ async function persistTabState(tabId: number, state: TabState): Promise<void> {
 }
 
 chrome.runtime.onInstalled.addListener(async () => {
-  const existing = await chromeSyncStorage.get<SearchProfile[]>('searchpin:profiles');
+  const existing = await chromeSyncStorage.get<SearchProfile[]>('tack:profiles');
   if (!existing || existing.length === 0) {
     await saveProfiles(chromeSyncStorage, defaultProfiles());
   }

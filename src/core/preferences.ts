@@ -10,7 +10,7 @@ export interface Preferences {
   lastFilterDisabled: boolean;
 }
 
-const STORAGE_KEY = 'searchpin:preferences';
+const STORAGE_KEY = 'tack:preferences';
 const DEFAULTS: Preferences = { silentMode: false, lastFilterDisabled: false };
 
 export async function loadPreferences(storage: StorageAdapter): Promise<Preferences> {

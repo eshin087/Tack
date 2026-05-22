@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SearchPin Settings</title>
+  <title>Tack Settings</title>
+  <link rel="icon" type="image/png" href="icons/icon-48.png">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -20,8 +21,15 @@
       .help { color: #999; }
       code { background: #333; }
     }
-    h1 { margin: 0 0 4px; font-size: 22px; }
-    .subtitle { color: #666; margin: 0 0 24px; font-size: 13px; }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h1 img { width: 28px; height: 28px; }
+    .subtitle { color: #3a3a3a; margin: 0 0 24px; font-size: 13px; }
     .profile-row {
       display: grid;
       grid-template-columns: minmax(120px, 1fr) minmax(180px, 2fr) auto auto auto;
@@ -78,7 +86,7 @@
     .delete-btn:hover { background: rgba(204, 51, 51, 0.1); border-color: #c33; }
     .help {
       font-size: 12px;
-      color: #666;
+      color: #3a3a3a;
       margin: 24px 0 0;
       line-height: 1.6;
     }
@@ -97,7 +105,7 @@
     .actions { display: flex; align-items: center; }
     .shortcuts-section { margin-top: 32px; }
     .shortcuts-section h2 { font-size: 16px; margin: 0 0 4px; }
-    .shortcuts-section .section-sub { font-size: 12px; color: #666; margin: 0 0 14px; }
+    .shortcuts-section .section-sub { font-size: 12px; color: #3a3a3a; margin: 0 0 14px; }
     @media (prefers-color-scheme: dark) {
       .shortcuts-section .section-sub { color: #999; }
       .shortcut-row { background: #2a2a2a; border-color: #444; }
@@ -115,7 +123,7 @@
       font-size: 13px;
     }
     .shortcut-label { flex: 1; }
-    .shortcut-desc { font-size: 11px; color: #888; margin-top: 1px; }
+    .shortcut-desc { font-size: 11px; color: #555; margin-top: 1px; }
     .shortcut-key {
       font-family: monospace;
       font-size: 12px;
@@ -192,10 +200,14 @@
   </style>
 </head>
 <body>
-  <h1>SearchPin</h1>
+  <h1>
+    <img src="icons/icon-48.png" alt="Tack icon">
+    Tack
+  </h1>
   <p class="subtitle">
-    Define one or more search profiles. The profile flagged as <strong>Default</strong>
-    is applied automatically to your Google, Bing, and DuckDuckGo searches.
+    Pin a <code>site:</code> filter (or any modifier) to every search.
+    Define one or more profiles below — the one flagged as <strong>Default</strong>
+    is applied automatically to your Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave searches.
   </p>
 
   <section class="prefs-section">
@@ -203,7 +215,7 @@
       <input type="checkbox" id="silent-mode">
       <span>
         <strong>Silent mode</strong> — never auto-show the bar or pill.
-        Use the <em>Show / hide the SearchPin bar</em> shortcut (assign one below) to bring it up on demand.
+        Use the <em>Show / hide the Tack bar</em> shortcut (assign one below) to bring it up on demand.
       </span>
     </label>
   </section>

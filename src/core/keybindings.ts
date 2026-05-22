@@ -18,7 +18,7 @@ export interface Keybinding {
 
 export type Keybindings = Partial<Record<KeybindingAction, Keybinding>>;
 
-const STORAGE_KEY = 'searchpin:keybindings';
+const STORAGE_KEY = 'tack:keybindings';
 
 export async function loadKeybindings(storage: StorageAdapter): Promise<Keybindings> {
   return (await storage.get<Keybindings>(STORAGE_KEY)) ?? {};

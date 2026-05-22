@@ -1,9 +1,11 @@
 import { build, context } from 'esbuild';
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 
 const watch = process.argv.includes('--watch');
 
 mkdirSync('dist', { recursive: true });
+mkdirSync('dist/icons', { recursive: true });
 
 const entries = [
   { in: 'src/platform/chrome/background.ts',       out: 'dist/background.js', format: 'esm'  },
@@ -22,6 +24,11 @@ const common = {
 function copyStatic() {
   copyFileSync('manifest.json', 'dist/manifest.json');
   copyFileSync('src/platform/chrome/options/options.html', 'dist/options.html');
+  if (existsSync('icons')) {
+    for (const file of readdirSync('icons')) {
+      if (file.endsWith('.png')) copyFileSync(join('icons', file), join('dist/icons', file));
+    }
+  }
 }
 
 if (watch) {
@@ -40,7 +47,7 @@ if (watch) {
     });
     await ctx.watch();
   }
-  console.log('SearchPin: watching for changes...');
+  console.log('Tack: watching for changes...');
 } else {
   await Promise.all(entries.map(e => build({
     ...common,
@@ -49,5 +56,5 @@ if (watch) {
     format: e.format,
   })));
   copyStatic();
-  console.log('SearchPin: build complete -> dist/');
+  console.log('Tack: build complete -> dist/');
 }

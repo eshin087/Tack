@@ -1,7 +1,7 @@
 import type { SearchProfile, TabState, RuntimeMessage } from '../core/types';
 
-export const BAR_ID  = 'searchpin-bar';
-export const PILL_ID = 'searchpin-pill';
+export const BAR_ID  = 'tack-bar';
+export const PILL_ID = 'tack-pill';
 
 interface BarProps {
   profiles: SearchProfile[];
@@ -101,8 +101,8 @@ function mountPill(props: BarProps): void {
   // Trigger button (the circle)
   const trigger = document.createElement('button');
   trigger.title = filterOn
-    ? `SearchPin: filtered by ${activeProfile!.name}`
-    : 'SearchPin: filter off';
+    ? `Tack: filtered by ${activeProfile!.name}`
+    : 'Tack: filter off';
   Object.assign(trigger.style, {
     position: 'fixed',
     bottom: '20px',
@@ -124,7 +124,7 @@ function mountPill(props: BarProps): void {
     justifyContent: 'center',
     letterSpacing: '-0.5px',
   } satisfies Partial<CSSStyleDeclaration>);
-  trigger.textContent = 'SP';
+  trigger.textContent = 'T';
 
   // Popup panel
   const panel = document.createElement('div');

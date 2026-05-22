@@ -119,7 +119,7 @@ async function refreshKeybindings(): Promise<void> {
 void refreshKeybindings();
 
 chromeSyncStorage.onChange((key) => {
-  if (key === 'searchpin:keybindings') void refreshKeybindings();
+  if (key === 'tack:keybindings') void refreshKeybindings();
   if (key === PREFERENCES_STORAGE_KEY) {
     // Replace the gate so any in-flight render() awaiting the old promise
     // sees the updated silentMode by the time it reads shouldHideUi().

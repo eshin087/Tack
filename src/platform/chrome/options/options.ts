@@ -35,7 +35,7 @@ if (
   !keybindingsListEl ||
   !silentModeCheckbox
 ) {
-  throw new Error('SearchPin: options page is missing required elements');
+  throw new Error('Tack: options page is missing required elements');
 }
 
 let keybindings: Keybindings = {};

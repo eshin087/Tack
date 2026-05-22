@@ -1,4 +1,4 @@
-const STYLE_ID = 'searchpin-ad-hider';
+const STYLE_ID = 'tack-ad-hider';
 
 // Targets the stable structural elements Google uses for sponsored ads.
 // IDs (#tads, #tadsb) have been present for 10+ years.

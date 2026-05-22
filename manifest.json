@@ -1,8 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "SearchPin",
+  "name": "Tack",
   "version": "0.1.0",
-  "description": "Auto-append search modifiers (like site:reddit.com) to Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave searches.",
+  "description": "Pin a site: filter to every search. One key cycles between Reddit, GitHub, Stack Overflow & more on Google, Bing & DuckDuckGo.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
   "permissions": [
     "storage",
     "webNavigation",
@@ -21,7 +27,12 @@
     "type": "module"
   },
   "action": {
-    "default_title": "SearchPin settings"
+    "default_title": "Tack settings",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
   },
   "options_ui": {
     "page": "options.html",
@@ -46,16 +57,16 @@
       "suggested_key": {
         "default": "Alt+Shift+F"
       },
-      "description": "Toggle SearchPin filter for the current results page"
+      "description": "Toggle Tack filter for the current results page"
     },
     "enable-filter": {
-      "description": "Apply filter — enable SearchPin for the current results page"
+      "description": "Apply filter — enable Tack for the current results page"
     },
     "disable-filter": {
-      "description": "Show all — disable SearchPin for the current results page"
+      "description": "Show all — disable Tack for the current results page"
     },
     "show-ui": {
-      "description": "Show / hide the SearchPin bar (used in Silent mode)"
+      "description": "Show / hide the Tack bar (used in Silent mode)"
     },
     "cycle-profile": {
       "description": "Cycle to the next filter profile"
