@@ -199,6 +199,10 @@
       body { background: #1e1e1e; color: #e6e6e6; }
       input, select, textarea, button { color: #e6e6e6; }
       code { color: #e6e6e6; background: #333; }
+      /* `.help code` has higher specificity than `code` alone, so without
+         this explicit override it keeps its light-mode `background: #eee`
+         in dark mode — making the example modifiers invisible. */
+      .help code { background: #333; }
       .help { color: #e6e6e6; }
       .profile-row { background: #2a2a2a; border-color: #444; }
       .profile-row input[type="text"] { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
