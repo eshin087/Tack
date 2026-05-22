@@ -14,11 +14,18 @@
       color: #1a1a1a;
       background: #ffffff;
     }
+    /* Force every form element to use the same dark text color — browser
+       defaults (especially for <select> and <input>) often render as light
+       gray and become unreadable on white backgrounds. */
+    input, select, textarea, button { color: #1a1a1a; }
+    code { color: #1a1a1a; }
     @media (prefers-color-scheme: dark) {
       body { background: #1e1e1e; color: #e6e6e6; }
+      input, select, textarea, button { color: #e6e6e6; }
+      code { color: #e6e6e6; }
       .profile-row { background: #2a2a2a; border-color: #444; }
       .profile-row input[type="text"] { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
-      .help { color: #999; }
+      .help { color: #c8c8c8; }
       code { background: #333; }
     }
     h1 {
@@ -29,7 +36,7 @@
       gap: 10px;
     }
     h1 img { width: 28px; height: 28px; }
-    .subtitle { color: #3a3a3a; margin: 0 0 24px; font-size: 13px; }
+    .subtitle { color: #1a1a1a; margin: 0 0 24px; font-size: 13px; }
     .profile-row {
       display: grid;
       grid-template-columns: minmax(120px, 1fr) minmax(180px, 2fr) auto auto auto;
@@ -86,7 +93,7 @@
     .delete-btn:hover { background: rgba(204, 51, 51, 0.1); border-color: #c33; }
     .help {
       font-size: 12px;
-      color: #3a3a3a;
+      color: #1a1a1a;
       margin: 24px 0 0;
       line-height: 1.6;
     }
@@ -105,7 +112,7 @@
     .actions { display: flex; align-items: center; }
     .shortcuts-section { margin-top: 32px; }
     .shortcuts-section h2 { font-size: 16px; margin: 0 0 4px; }
-    .shortcuts-section .section-sub { font-size: 12px; color: #3a3a3a; margin: 0 0 14px; }
+    .shortcuts-section .section-sub { font-size: 12px; color: #1a1a1a; margin: 0 0 14px; }
     @media (prefers-color-scheme: dark) {
       .shortcuts-section .section-sub { color: #999; }
       .shortcut-row { background: #2a2a2a; border-color: #444; }
@@ -123,7 +130,7 @@
       font-size: 13px;
     }
     .shortcut-label { flex: 1; }
-    .shortcut-desc { font-size: 11px; color: #555; margin-top: 1px; }
+    .shortcut-desc { font-size: 11px; color: #333; margin-top: 1px; }
     .shortcut-key {
       font-family: monospace;
       font-size: 12px;

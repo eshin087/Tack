@@ -1,14 +1,15 @@
+<div align="center">
+
+![Tack](icons/icon-128.png)
+
 # Tack
 
-<p align="center">
-  <img src="icons/icon-128.png" alt="Tack" width="96" height="96">
-</p>
+**Pin a `site:` filter to every search.**
 
-<p align="center">
-  <b>Pin a <code>site:</code> filter to every search.</b><br>
-  Tack auto-appends configurable search modifiers — like <code>site:reddit.com</code> —
-  to your queries on Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave Search.
-</p>
+Tack auto-appends configurable search modifiers — like `site:reddit.com` —
+to your queries on Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave Search.
+
+</div>
 
 <p align="center">
   <a href="#install-unpacked">Install</a> ·
