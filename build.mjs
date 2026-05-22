@@ -26,7 +26,11 @@ function copyStatic() {
   copyFileSync('src/platform/chrome/options/options.html', 'dist/options.html');
   if (existsSync('icons')) {
     for (const file of readdirSync('icons')) {
-      if (file.endsWith('.png')) copyFileSync(join('icons', file), join('dist/icons', file));
+      // Only ship the resized icons that are referenced from manifest.json —
+      // skip the original source PNG (large, internal-only).
+      if (file.startsWith('icon-') && file.endsWith('.png')) {
+        copyFileSync(join('icons', file), join('dist/icons', file));
+      }
     }
   }
 }
