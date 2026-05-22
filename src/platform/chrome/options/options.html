@@ -19,15 +19,6 @@
        gray and become unreadable on white backgrounds. */
     input, select, textarea, button { color: #1a1a1a; }
     code { color: #1a1a1a; }
-    @media (prefers-color-scheme: dark) {
-      body { background: #1e1e1e; color: #e6e6e6; }
-      input, select, textarea, button { color: #e6e6e6; }
-      code { color: #e6e6e6; }
-      .profile-row { background: #2a2a2a; border-color: #444; }
-      .profile-row input[type="text"] { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
-      .help { color: #c8c8c8; }
-      code { background: #333; }
-    }
     h1 {
       margin: 0 0 4px;
       font-size: 22px;
@@ -116,11 +107,6 @@
     .shortcuts-section { margin-top: 32px; }
     .shortcuts-section h2 { font-size: 16px; margin: 0 0 4px; }
     .shortcuts-section .section-sub { font-size: 13px; margin: 0 0 14px; line-height: 1.5; }
-    @media (prefers-color-scheme: dark) {
-      .shortcuts-section .section-sub { color: #999; }
-      .shortcut-row { background: #2a2a2a; border-color: #444; }
-      .shortcut-key { background: #1e1e1e; border-color: #555; color: #e6e6e6; }
-    }
     .shortcut-row {
       display: flex;
       align-items: center;
@@ -174,10 +160,6 @@
       color: #b85c00;
     }
     .kb-capture.unset { color: #aaa; font-style: italic; }
-    @media (prefers-color-scheme: dark) {
-      .kb-capture { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
-      .kb-capture.recording { background: #3a2a00; color: #ffd47a; border-color: #f59f00; }
-    }
     .kb-clear {
       background: transparent;
       border: 1px solid transparent;
@@ -204,7 +186,26 @@
       cursor: pointer;
     }
     .prefs-row input { margin-top: 3px; }
+
+    /* -----------------------------------------------------------------
+       Dark mode overrides — placed at the END of the stylesheet so they
+       always win the cascade against the light-mode declarations above.
+       Previously these were scattered inline and some were declared
+       BEFORE the corresponding light-mode rule, which meant the light
+       rule (later in source order) would override them — resulting in
+       light cards with light text in dark mode (= invisible).
+       ----------------------------------------------------------------- */
     @media (prefers-color-scheme: dark) {
+      body { background: #1e1e1e; color: #e6e6e6; }
+      input, select, textarea, button { color: #e6e6e6; }
+      code { color: #e6e6e6; background: #333; }
+      .help { color: #e6e6e6; }
+      .profile-row { background: #2a2a2a; border-color: #444; }
+      .profile-row input[type="text"] { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
+      .shortcut-row { background: #2a2a2a; border-color: #444; }
+      .shortcut-key { background: #1e1e1e; border-color: #555; color: #e6e6e6; }
+      .kb-capture { background: #1e1e1e; color: #e6e6e6; border-color: #555; }
+      .kb-capture.recording { background: #3a2a00; color: #ffd47a; border-color: #f59f00; }
       .prefs-section { background: #2a2a2a; border-color: #444; }
     }
   </style>
