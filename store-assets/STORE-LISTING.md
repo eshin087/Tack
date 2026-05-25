@@ -109,11 +109,10 @@ Tack only requests access to the search-engine domains it actually rewrites
 queries on. It never sees pages outside those domains.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-OPEN SOURCE
+SOURCE CODE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Tack is open source under the MIT license. Read the code, file issues,
-or contribute at: https://github.com/eshin087/Tack
+Read the source code or file issues at: https://github.com/eshin087/Tack
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

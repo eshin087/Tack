@@ -82,8 +82,7 @@ Tack.
 
 ## Source code
 
-Tack is open source under the MIT license. You can audit every line
-of code yourself at:
+You can audit every line of Tack's source code yourself at:
 
 **https://github.com/eshin087/Tack**
 

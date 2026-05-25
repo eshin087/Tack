@@ -220,7 +220,3 @@ The `src/core/` directory has no browser-API dependencies. To port:
 - Mobile Chrome — Android Chrome doesn't support extensions
 - Per-domain rules (one default profile at a time; switch per-tab via UI)
 - Conflict resolution beyond Chrome's built-in `storage.sync` semantics
-
-## License
-
-MIT
