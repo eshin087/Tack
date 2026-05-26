@@ -32,7 +32,7 @@ Pin a site:reddit.com (or any modifier) to every search. One keypress cycles bet
 ## Detailed description (16,000 char max — markdown stripped, plain text)
 
 ```
-Tired of trawling SEO-blog spam to find a real answer? Tack pins a `site:` filter — or any other search operator — to every query you run on Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave Search.
+Tired of trawling SEO-blog spam to find a real answer? Tack pins a `site:` filter — or any other search operator — to every query you run on search engines.
 
 Define one profile (e.g. site:reddit.com), or several (Reddit, GitHub, Stack Overflow, your company docs), and toggle between them with a single keypress. Tack rewrites the URL before the results page loads, so you get filtered results immediately — no waiting, no manual typing.
 
@@ -46,7 +46,6 @@ WHY USE TACK?
   ✓ Toggle the filter off per-tab when you DO want broad results
   ✓ Sticky on/off — if you turn it off, new tabs honor that
   ✓ Silent mode hides all UI; the filter just runs quietly
-  ✓ Bonus: hides sponsored ads on Google
   ✓ 100% local — no servers, no tracking, no analytics
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -84,19 +83,6 @@ IN-PAGE KEYBINDINGS (any combo, including bare Shift+letter):
   or even a single letter. Set them from the options page.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SUPPORTED SEARCH ENGINES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  • Google
-  • Bing
-  • DuckDuckGo
-  • Yahoo Search
-  • Ecosia
-  • Brave Search
-
-More on the roadmap — Kagi, Startpage, Qwant.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PRIVACY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -113,13 +99,15 @@ SOURCE CODE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Read the source code or file issues at: https://github.com/eshin087/Tack
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Keywords: site search, reddit search, search filter, search operator,
-google site search, search modifier, search shortcut, site:reddit.com,
-filter search results, hide ads google, productivity, developer tools
 ```
+
+> ⚠️ **DO NOT put keyword lists in the description.** A previous draft
+> appended a trailing `Keywords:` line; Chrome Web Store rejected the
+> submission citing the **"Keyword Spam"** policy (violation reference
+> "Yellow Argon"). Keywords go ONLY in the dashboard's dedicated
+> search-keywords / properties field — never in the description body.
+> Same rule applies to the WHY USE TACK list: keep it feature-focused,
+> not keyword-focused.
 
 ---
 
