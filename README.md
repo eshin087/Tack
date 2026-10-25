@@ -1,6 +1,6 @@
 <div align="center">
 
-![Tack](icons/icon-128.png)
+<a href="https://chromewebstore.google.com/detail/eocnfdoalpjojdefhijflkijdeegjieh"><img src="store-assets/promo-tile-1400x560.png" alt="Tack promo tile: a red push pin icon next to the name Tack and the line Pin a site: filter to every search" width="100%"></a>
 
 # Tack
 
@@ -12,7 +12,11 @@ to your queries on Google, Bing, DuckDuckGo, Yahoo, Ecosia, and Brave Search.
 </div>
 
 <p align="center">
-  <a href="#install-unpacked">Install</a> ·
+  <b><a href="https://chromewebstore.google.com/detail/eocnfdoalpjojdefhijflkijdeegjieh">Install from the Chrome Web Store</a></b> (also works in Edge)
+</p>
+
+<p align="center">
+  <a href="#install-unpacked">Install unpacked</a> ·
   <a href="#features">Features</a> ·
   <a href="#keyboard-shortcuts">Shortcuts</a> ·
   <a href="#architecture">Architecture</a>
@@ -202,21 +206,6 @@ Example for adding Kagi:
 "host_permissions": [..., "*://kagi.com/*"]
 ```
 
-## Porting to Firefox / Safari (planned, out of scope for v1)
+## Not in v1
 
-The `src/core/` directory has no browser-API dependencies. To port:
-
-1. Create `src/platform/firefox/` (or `safari/`) mirroring `src/platform/chrome/`.
-2. Implement `StorageAdapter` and `TabStateStore` against the target's
-   `browser.storage` API. The `webextension-polyfill` is the usual Firefox shortcut.
-3. Add a target to `build.mjs` that bundles per-browser `dist-<browser>/` folders.
-4. Adapt `manifest.json` — Firefox MV3 accepts a few extra fields
-   (`browser_specific_settings`); Safari needs a wrapper Xcode project.
-
-## Out of scope (v1)
-
-- Firefox build (planned for v2)
-- Safari desktop / iOS build
-- Mobile Chrome — Android Chrome doesn't support extensions
-- Per-domain rules (one default profile at a time; switch per-tab via UI)
-- Conflict resolution beyond Chrome's built-in `storage.sync` semantics
+Firefox and Safari builds, mobile Chrome, per-domain rules and custom sync conflict handling are out of scope for v1. The `src/core/` directory has no browser-API dependencies, so a port means a new `src/platform/<browser>/` folder with its own storage adapters.
